@@ -3,8 +3,6 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.InputMismatchException;
 
-import javax.xml.bind.Validator;
-
 public class Cliente {
 	
 	private static String NOME_ARQUIVO = "cliente.loc";
@@ -35,7 +33,9 @@ public class Cliente {
 				this.idade = idade;
 				nome = LTPUtils.getString("Digite o Nome: ");
 				
-				cpf = validarCpf(LTPUtils.getString("Digite o Cpf: "));
+				do {
+				  cpf = validarCpf(LTPUtils.getString("Digite o Cpf: "));
+				}while(cpf == null);
 				
 				telefone = LTPUtils.getString("Digite o Telefone: ");
 				
@@ -60,19 +60,17 @@ public class Cliente {
 			salvar();
 		}
 		
-		
 	}
 
 	private String validarCpf(String cpf) {
-		do {
-			if(isCpf(cpf)) { 
-				return cpf ;
-			}else {
-				System.err.println("\nCPF INVÁLIDO! Digite um número de cpf válido");
-				return null;
-			}
+		if(isCpf(cpf)) { 
+			return cpf ;
+		}else {
+			System.err.println("\nCPF INVÁLIDO! Digite um número de cpf válido");
+			return null;
+		}
 			
-		}while(isCpf(cpf) == false);
+
 	}
 
 

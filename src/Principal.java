@@ -35,7 +35,7 @@ public class Principal {
 		Cliente cliente = new Cliente();
 		do {
 
-			switch (LTPUtils.menuOptions("GESTÃO DE CLIENTES", menuCliente)) {
+			switch (LTPUtils.menuOptions("GESTï¿½O DE CLIENTES", menuCliente)) {
 			case 1:
 				cliente.cadastrar();
 				break;
@@ -66,7 +66,7 @@ public class Principal {
 		Filme filme = new Filme();
 		do {
 
-			switch (LTPUtils.menuOptions("GESTÃO DE FILMES", menuFilmes)) {
+			switch (LTPUtils.menuOptions("GESTï¿½O DE FILMES", menuFilmes)) {
 			case 1:
 				filme.cadastrar();
 				break;
@@ -100,7 +100,7 @@ public class Principal {
 
 		do {
 
-			switch (LTPUtils.menuOptions("LOCAÇÃO DE FILMES", menuLocacao)) {
+			switch (LTPUtils.menuOptions("LOCAï¿½ï¿½O DE FILMES", menuLocacao)) {
 			case 1:
 				locacao.listarFilmePorGenero();
 				break;
