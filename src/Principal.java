@@ -4,7 +4,7 @@ public class Principal {
 	private static String menuHome[] = { "Filme", "Locacao", "Cliente" };
 	private static String menuFilmes[] = { "Cadastrar filme", "Alterar", "Excluir", "Listar", "Pesquisar Pelo Nome","Pesquisar por genero" };
 	private static String menuCliente[] = { "Cadastrar cliente", "Alterar", "Excluir", "Listar", "Pesquisar Pelo Nome","Pesquisar por cpf" };
-	private static String menuLocacao[] = { "Listar filmes por Genero", "Alugar", "RenovarLocacao" };
+	private static String menuLocacao[] = {"Alugar", "RenovarLocacao" };
 
 	public static void main(String[] args) {
 
@@ -100,15 +100,15 @@ public class Principal {
 
 		do {
 
-			switch (LTPUtils.menuOptions("LOCA��O DE FILMES", menuLocacao)) {
+			switch (LTPUtils.menuOptions("LOCAÇÃO DE FILMES", menuLocacao)) {
 			case 1:
-				locacao.listarFilmePorGenero();
-				break;
-			case 2:
+				
 				locacao.alugar();
 				break;
-			case 3:
+			case 2:
 				locacao.renovar();
+				break;
+			case 3:
 				break;
 			case 0:
 				return;
