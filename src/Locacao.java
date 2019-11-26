@@ -36,9 +36,11 @@ public class Locacao {
 		
 		} while (this.id != -1);
 		this.id = autoIncrement();
-
-		if (LTPUtils.recebeSouN("Deseja Salvar (S/N)? ") == 'S') {
-			salvar();
+			
+		if (LTPUtils.recebeSouN("Deseja Alugar o filme" + auxFilme.nome +" (S/N)? ") == 'S') {
+			auxFilme.alugado = 'S';
+			auxFilme.salvarFilme();
+			salvarLocacao();
 		}
 	}
 
@@ -48,7 +50,7 @@ public class Locacao {
 		
 	}
 	
-	public void salvar() {
+	public void salvarLocacao() {
 		try {
 			RandomAccessFile arq = new RandomAccessFile(NOME_ARQUIVO, "rw");
 

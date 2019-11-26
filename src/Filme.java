@@ -53,7 +53,7 @@ public class Filme {
 		this.valorLocacao = valorLocacao;
 
 		if (this.id != -1 && LTPUtils.recebeSouN("Deseja Salvar (S/N)? ") == 'S') {
-			salvar();
+			salvarFilme();
 		}
 
 	}
@@ -90,7 +90,7 @@ public class Filme {
 			// Se existe, ir� desativar o atual
 			excluirPorId(id);
 
-			novo.salvar();
+			novo.salvarFilme();
 
 			System.out.println("ID (" + id + "): alterado com sucesso!");
 		} else {
@@ -358,7 +358,7 @@ public class Filme {
 
 	}
 
-	public void salvar() {
+	public void salvarFilme() {
 		try {
 			RandomAccessFile arq = new RandomAccessFile(NOME_ARQUIVO, "rw");
 
