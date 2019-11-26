@@ -41,7 +41,7 @@ public class Filme {
 			// Se encontrou o cliente jÃ¡ cadastrado, mostra os dados
 			if (this.id != -1) {
 				this.mostrarDadosFilme();
-				System.err.println("Filme já¡ cadastrado. Cadastre outro!");
+				System.err.println("Filme jï¿½ cadastrado. Cadastre outro!");
 			}
 
 		} while (this.id != -1);
@@ -67,9 +67,9 @@ public class Filme {
 			// Receber o novo
 			Filme novo = new Filme();
 
-			// Alterar gênero
+			// Alterar gï¿½nero
 			if (LTPUtils.recebeSouN("GENERO: " + atual.genero + "\nAtualizar (S/N)? ") == 'S') {
-				novo.genero = LTPUtils.getStringUpperCase("Digite o gênero para atualziar: ");
+				novo.genero = LTPUtils.getStringUpperCase("Digite o gï¿½nero para atualziar: ");
 			} else {
 				novo.genero = atual.genero;
 			}
@@ -87,14 +87,14 @@ public class Filme {
 			novo.nome = atual.nome;
 			novo.valorLocacao = atual.valorLocacao;
 
-			// Se existe, irá desativar o atual
+			// Se existe, irï¿½ desativar o atual
 			excluirPorId(id);
 
 			novo.salvar();
 
 			System.out.println("ID (" + id + "): alterado com sucesso!");
 		} else {
-			System.err.println("ID não encontrado!");
+			System.err.println("ID nï¿½o encontrado!");
 		}
 
 	}
@@ -141,10 +141,10 @@ public class Filme {
 
 				arq.close();
 
-				System.out.println("ID (" + id + "): excluído com sucesso!");
+				System.out.println("ID (" + id + "): excluï¿½do com sucesso!");
 
 			} else {
-				System.err.println("ID não encontrado!");
+				System.err.println("ID nï¿½o encontrado!");
 			}
 
 		} catch (IOException e) {
@@ -214,11 +214,13 @@ public class Filme {
 		if (nome.equals(this.nome)) {
 			mostrarDadosFilme();
 		} else {
-			System.err.println("Filme " + nome + " Não Entrado!");
+			System.err.println("Filme " + nome + " Nï¿½o Entrado!");
 		}
 	}
 
 	public void pesquisarPorGenero(String genero) {
+	
+		boolean naoEncontrouGenero = true;
 		try {
 			RandomAccessFile arq = new RandomAccessFile(NOME_ARQUIVO, "rw");
 			Filme f = new Filme();
@@ -235,6 +237,7 @@ public class Filme {
 				if (f.ativo == 'S' && f.genero.equalsIgnoreCase(genero)) {
 					this.setFilme(f.id, f.alugado, f.nome, f.genero, f.ano, f.valorLocacao);
 					mostrarDadosFilme();
+					naoEncontrouGenero = false;
 				}
 			}
 
@@ -244,8 +247,8 @@ public class Filme {
 			System.out.println("Erro ao abrir o arquivo!");
 		}
 
-		if (this.id == -1) {
-			System.err.println("Erro: Gênero não encontrado");
+		if (naoEncontrouGenero) {
+			System.err.println("Erro: Genero nÃ£o encontrado");
 		}
 	}
 
@@ -281,7 +284,7 @@ public class Filme {
 		do {
 
 			if (!isNumeric(ano) || ano.length() != 4 || Integer.valueOf(ano) < 1900 || Integer.valueOf(ano) > 2019) {
-				System.err.println("Ano inválido digite um ano válido.");
+				System.err.println("Ano invï¿½lido digite um ano vï¿½lido.");
 				break;
 			}
 		} while (!isNumeric(ano) || ano.length() != 4 || Integer.valueOf(ano) < 1900 || Integer.valueOf(ano) > 2019);
@@ -310,7 +313,7 @@ public class Filme {
 		System.out.println("Nome              : " + this.nome);
 		System.out.println("Genero            : " + this.genero);
 		System.out.println("Ano               : " + this.ano);
-		System.out.println("Valor Locação   : " + LTPUtils.formatacaoReal(this.valorLocacao));
+		System.out.println("Valor Locaï¿½ï¿½o   : " + LTPUtils.formatacaoReal(this.valorLocacao));
 	}
 
 	public void getFilme(String nome) {

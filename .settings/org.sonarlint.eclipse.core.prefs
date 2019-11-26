@@ -1,4 +1,4 @@
 autoEnabled=true
 eclipse.preferences.version=1
 extraProperties=
-fileExclusions=FILE\:src/Cliente.java
+fileExclusions=FILE\:src/Cliente.java\r\nFILE\:src/Filme.java
